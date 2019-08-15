@@ -64,7 +64,7 @@
 
       if (isset($_POST["btnConfirmar"])) {
           $mode = $_POST["mode"];
-          $selectedEst = $_POST["estadoempleado"];
+          $selectedEst = $_POST["estempleado"];
            mergeFullArrayTo($_POST, $viewData);
           switch($mode)
           {
@@ -72,8 +72,8 @@
               $viewData["showcodempleado"] = false;
               $viewData["modeDsc"] = $modeDesc[$mode];
 
-
-              if (!$hasError && agregarNuevoEmpleado(
+            
+              if (!$hasError && agregarNuevoempleado(
                   $viewData["nomempleado"],
                   $viewData["apePaempleado"],
                   $viewData["apeMaempleado"],
@@ -134,7 +134,7 @@
           }
       }
       $viewData["mode"] = $mode;
-      $viewData["estadoempleado"] = addSelectedCmbArray($estadoempleado, 'cod', $selectedEst);
+      $viewData["estempleado"] = addSelectedCmbArray($estadoempleado, 'cod', $selectedEst);
       $viewData["hasErrors"] = $hasError;
       $viewData["errores"] = $errores;
       renderizar("examenform", $viewData);

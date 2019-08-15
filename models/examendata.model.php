@@ -1,14 +1,6 @@
 <?php
 require_once "libs/dao.php";
 
-// Elaborar el algoritmo de los solicitado aquí.
-/*
-SELECT `juguetes`.`idjuguetes`,
-    `juguetes`.`nomjuguete`,
-    `juguetes`.`preciojuguete`,
-    `juguetes`.`estadojuguete`
-FROM `examen`.`juguetes`;
-*/
 /**
  * Obtiene los registro de la tabla de modas
  *
@@ -47,7 +39,7 @@ function obtenerEmpleadosPorId($codempleado)
             `empleados`.`estadoempleado`
             from `flores`.`empleados` where codempleado=%d";
   $empleados= array();
-  $empleados=obtenerUnRegistro(sprintf($sqlstr, $codempleado));
+  $empleados=obtenerUnRegistro(sprintf($sqlstr));
   return $empleados;
 }
 
@@ -56,7 +48,7 @@ function obtenerEstadoPorId($codempleado)
   $sqlstr="select `empleados`.`estadoempleado`
         from `flores`.`empleados` where codempleado=%d";
   $empleados= array();
-  $empleados=obtenerUnRegistro(sprintf($sqlstr, $codempleado));
+  $empleados=obtenerUnRegistro(sprintf($sqlstr));
   return $empleados;
 }
 
@@ -67,7 +59,6 @@ function obtenerEstados()
         array("cod"=>"ACT", "dsc"=>"Activo"),
         array("cod"=>"ASP", "dsc"=>"Aspiranre"),
         array("cod"=>"FMQ", "dsc"=>"Finiquitado")
-
     );
 }
 
